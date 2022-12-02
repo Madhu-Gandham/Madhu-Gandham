@@ -29,7 +29,7 @@ public class CabBooking implements CabBookingRemote {
 	@Override
 	public User searchUserBean(int userId) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		return edao.searchUser(userId);
+		return edao.serachUser(userId);
 	}
 
 	@Override
@@ -42,6 +42,12 @@ public class CabBooking implements CabBookingRemote {
 	public Driver searchDriverBean(int driverId) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		return edao.searchDriver(driverId);
+	}
+
+	@Override
+	public String addBooking(Booking booking) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return edao.addBooking(booking);
 	}
 
 }

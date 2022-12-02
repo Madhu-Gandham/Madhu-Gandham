@@ -14,7 +14,7 @@ public class CabDAO {
 	Connection connection;
 	PreparedStatement pst;
 	
-	public User searchUser(int userId) throws ClassNotFoundException, SQLException{
+	public User serachUser(int userId) throws ClassNotFoundException, SQLException{
 		connection = ConnectionHelper.getConnection();
 		String cmd = "select * from userdetails where userId = ?";
 		pst = connection.prepareStatement(cmd);
@@ -61,6 +61,25 @@ public class CabDAO {
 		return driver;
 	}
 	
+	public String addBooking(Booking book) 
+			throws ClassNotFoundException, SQLException {
+		connection = ConnectionHelper.getConnection();
+		String cmd = "insert into Booking(bookingDate,driverId,userId,startingLocation,endingLocation,kilometers,bookingStatus,billAmount) "
+				+ " values(?,?,?,?,?,?,?,?)";
+		pst = connection.prepareStatement(cmd);
+		pst.setDate(1, book.getBookingDate());
+		pst.setInt(2, book.getDriverId());
+		pst.setInt(3, book.getUserId());
+		pst.setString(4, book.getStartingLocation());
+		pst.setString(5, book.getEndingLocation());
+		pst.setDouble(6, book.getKilometers());
+	    pst.setString(7, book.getBookingStatus().toString());
+		pst.setDouble(8,book.getBillAmount());
+	
+		pst.executeUpdate();
+		return "Booked...";
+	}
+
 	public List<Driver> showDriver() throws ClassNotFoundException, SQLException{
 		List<Driver>  driverlist = new ArrayList<Driver>();
 		connection = ConnectionHelper.getConnection();
