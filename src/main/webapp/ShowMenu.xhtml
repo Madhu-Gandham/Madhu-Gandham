@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<style>
+      .table-bordered thead th{
+      background-color: black;
+      color:white;
+      }
+      
+      </style>
+</h:head>
+<h:body>    
+    <ui:include page="CNavbar.xhtml"/>      
+
+<h:form>
+<h:dataTable class="table table-bordered text-center  " border="3" value="#{menuDAO.searchMenu(param.restId)}" var="e">       
+ <h:column class="col">            
+<f:facet name="header">Menu Item</f:facet>           
+ <h:outputText value="#{e.menu_item}"/>            
+</h:column>        
+<h:column>            
+<f:facet name="header">Menu Price</f:facet>           
+ <h:outputText value="#{e.menu_price}"/>            
+</h:column>        
+<h:column>            
+<f:facet name="header">Menu Type</f:facet>           
+ <h:outputText value="#{e.menu_type}"/>            
+</h:column>        
+ <h:column>
+   <f:facet name="header"></f:facet>
+   <a href="AddCart.jsp?id=#{e.menu_id}" class="btn btn-success">Select</a>
+</h:column>
+</h:dataTable>
+</h:form>
+
+</h:body>
+</html>
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+      <link rel="stylesheet" href="css/bootstrap.css" />
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<style>
+      .table-bordered thead th{
+      background-color: black;
+      color:white;
+      }
+      
+      </style>
+</h:head>
+<h:body>
+
+<ui:include src="/VDashboard.xhtml" />
+<h:form>
+               
+           
+        <h:dataTable class="table table-bordered text-center" value="#{vendorDAO.searchVendorId(vid)}" var="order" border="3">
+        <h:column>
+                    <f:facet name="header">OrderId</f:facet>
+                    <h:outputText value="#{order.orderId}"/>
+                </h:column>
+        	    <h:column>
+                    <f:facet name="header">Customer Id</f:facet>
+                    <h:outputText value="#{order.custId}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Vendor Id</f:facet>
+                    <h:outputText value="#{order.vendorId}"/>
+                </h:column>
+                        <h:column>
+                    <f:facet name="header">Menu Id</f:facet>
+                    <h:outputText value="#{order.menuId}"/>
+                </h:column>
+                    <h:column>
+                    <f:facet name="header">Quantity</f:facet>
+                    <h:outputText value="#{order.quantity}"/>
+                </h:column>
+                    <h:column>
+                    <f:facet name="header">Comments</f:facet>
+                    <h:outputText value="#{order.comments}"/>
+                </h:column>
+                    <h:column>
+                    <f:facet name="header">Status</f:facet>
+                    <h:outputText value="#{order.status}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                   <a href="VendorUpdateOrder.jsp?id=${order.orderId}" class="btn btn-primary">View</a>
+                </h:column>
+                
+                
+        </h:dataTable>
+    
+        </h:form>
+</h:body>
+</html>

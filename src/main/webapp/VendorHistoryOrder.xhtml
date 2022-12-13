@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<style>
+      .table-bordered thead th{
+      background-color: black;
+      color:white;
+      }
+      
+      </style>
+</h:head>
+<h:body>
+<ui:include src="/VDashboard.xhtml" />
+<h:form>
+			
+            
+        <h:dataTable class="table table-bordered text-center" value="#{vendorDAO.searchVendorHistoryOrder(vid)}" var="order" border="3">
+               <h:column>
+                    <f:facet name="header">OrderId</f:facet>
+                    <h:outputText value="#{order.orderId}"/>
+                </h:column>
+        	    <h:column>
+                    <f:facet name="header">Customer Id</f:facet>
+                    <h:outputText value="#{order.custId}"/>
+                </h:column>
+                
+                        <h:column>
+                    <f:facet name="header">Menu Id</f:facet>
+                    <h:outputText value="#{order.menuId}"/>
+                </h:column>
+                    <h:column>
+                    <f:facet name="header">Quantity</f:facet>
+                    <h:outputText value="#{order.quantity}"/>
+                </h:column>
+                    <h:column>
+                    <f:facet name="header">Comments</f:facet>
+                    <h:outputText value="#{order.comments}"/>
+                </h:column>
+                    <h:column>
+                    <f:facet name="header">Status</f:facet>
+                    <h:outputText value="#{order.status}"/>
+                </h:column>
+                
+                 <h:commandButton action = "VendorHistoryOrders.xhtml?faces-redirect=true" value="Add Customer"/>
+                 
+        </h:dataTable>
+        
+        </h:form>
+</h:body>
+</html>

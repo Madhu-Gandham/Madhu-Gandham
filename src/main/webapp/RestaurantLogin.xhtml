@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+   <h:body>
+   <ui:include src="Navbar.xhtml"/><br/>
+
+       <div class="container">
+ <div class="row">
+    <div class="col-sm-6 mx-auto">
+       <h3 class="text-center">Restaurant Login</h3>
+        <h:form >
+        <div class="form-group">
+           UserName:
+        <h:inputText value="#{restaurant.username}" id="u"  class="form-control"/> 
+        </div>
+     
+                <div class="form-group">
+        Password:
+        <h:inputSecret value="#{restaurant.password}" id="p"  class="form-control"/>
+        </div>
+        
+            
+            <h:commandButton class="btn btn-primary" value="Login" action="#{RestaurantDAO.checkUsers(restaurant)}"></h:commandButton>
+        </h:form>
+        </div></div></div>
+    </h:body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<link rel="stylesheet" href="css/bootstrap.css" />
+<script src="js/jquery-3.5.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</h:head>
+<h:body>
+<ui:include src="Navbar.xhtml"></ui:include>
+<div class="container">
+ <div class="row">
+    <div class="col-sm-6 mx-auto">
+
+<h:form>
+ <div class="form-group">
+ Restaurant Name:
+<h:inputText value="#{restaurant.name}" class="form-control"  required="true" requiredMessage="Name is mandotory"/>
+ </div>
+
+<div class="form-group">
+Restaurant City:
+<h:inputText value="#{restaurant.city}" class="form-control" required="true" requiredMessage="City Name is mandotory"/>
+</div>
+
+<div class="form-group">
+Restaurant State:
+<h:inputText value="#{restaurant.state}" class="form-control" required="true" requiredMessage="State name is mandotory"/>
+</div>
+
+<div class="form-group">
+Restaurant Pincode:
+<h:inputText value="#{restaurant.pincode}" class="form-control" required="true" requiredMessage="Provide Pincode"/>
+</div>
+
+<div class="form-group">
+Restaurant Email:
+<h:inputText id="rest_email" value="#{restaurant.email}" validator="#{RestaurantDAO.validateEmail}" class="form-control" required="true" requiredMessage="Enter Email" />
+</div>
+
+<div class="form-group">
+Restaurant Mobile:
+<h:inputText value="#{restaurant.mobileno}" validator="#{RestaurantDAO.validatePhnNo}" class="form-control"
+ required="true" requiredMessage="Provide Mobile number"/>
+</div>
+
+<div class="form-group">
+Restaurant userName:
+<h:inputText value="#{restaurant.username}" class="form-control" 
+required="true" requiredMessage="UserName is mandotory"/>
+</div>
+
+<div class="form-group">
+Restaurant Password:
+<h:inputText value="#{restaurant.password}"  validator="#{RestaurantDAO.validatePassword}" class="form-control" 
+required="true" requiredMessage="Password is mandotory"/>
+</div>
+
+
+<h:commandButton value="Save" class="btn btn-dark" action="#{RestaurantDAO.addRestaurant(restaurant)}"/>
+</h:form>
+</div>
+</div></div>
+</h:body>
+</html>
