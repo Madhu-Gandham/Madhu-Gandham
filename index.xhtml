@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>OTP Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        .button-group {
+            text-align: center;
+        }
+
+        .button-group .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #337ab7;
+            color: #ffffff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button-group .btn:hover {
+            background-color: #286090;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-top: 10px;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <h2 class="title">OTP Verification</h2>
+        <h:form>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <h:inputText id="phoneNumber" value="#{otpVerificationBean.phoneNumber}" />
+            </div>
+
+            <div class="form-group">
+                <label for="userEnteredOTP">Enter OTP:</label>
+                <h:inputText id="userEnteredOTP" value="#{otpVerificationBean.userEnteredOTP}" />
+            </div>
+
+            <div class="button-group">
+                <h:commandButton value="Send OTP" action="#{otpVerificationBean.sendOTP}" styleClass="btn" />
+                <h:commandButton value="Validate OTP" action="#{otpVerificationBean.validateOTP}" styleClass="btn" />
+            </div>
+        </h:form>
+
+        <h:messages styleClass="error-message" />
+    </div>
+</h:body>
+
+</html>

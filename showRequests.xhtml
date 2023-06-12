@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+    <title>Show Requests</title>
+</head>
+<body>
+    <h:form>
+        <h:dataTable value="#{BookRequestDAO.getAllBookRequest()}" var="request">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{request.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Teacher Name</f:facet>
+                #{request.teacher_name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Book Title</f:facet>
+                #{request.book_title}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Reason</f:facet>
+                #{request.reason}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                #{request.status}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</body>
+</html>

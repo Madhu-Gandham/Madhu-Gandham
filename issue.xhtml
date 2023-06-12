@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title></title>
+</head>
+<body>
+    <ui:include src="menu.jsp" />
+    <c:forEach var="b" items="${paramValues.bookid}">
+        <h:form>
+            <h:inputHidden value="#{beanTran.bookId}" />
+            <h:inputHidden value="#{sessionScope.user}" />
+            <h:commandButton value="Issue Book" action="#{beanDao.issueBook(beanTran)}" />
+        </h:form>
+    </c:forEach>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+
+	<h:outputLabel for="gender" value="Gender" />
+	<h:selectOneRadio id="gender" value="#{bean.gender}">
+		<f:selectItem itemLabel="Male" itemValue="Male" />
+		<f:selectItem itemLabel="Female" itemValue="Female" />
+	</h:selectOneRadio>
+
+	<h:outputText value="Gender" for="Gender" />
+	<h:selectManyCheckbox value="#{bean.gender}">
+		<f:selectItem itemLabel="Male" itemValue="Male" />
+		<f:selectItem itemLabel="Female" itemValue="Female" />
+	</h:selectManyCheckbox>
+
+	<h:selectOneMenu value="#{bean.selectedGender}">
+		<f:selectItem itemLabel="Select a gender" itemValue="" />
+		<f:selectItem itemLabel="Male" itemValue="Male" />
+		<f:selectItem itemLabel="Female" itemValue="Female" />
+	</h:selectOneMenu>
+<!-- -->
+
+	<h:selectOneMenu value="#{bean.Gender}">
+		<f:selectItem itemLabel="select a Gender" itemValue="" />
+		<f:selectItem itemLabel="Male" itemValue="Male" />
+		<f:selectItem itemLabel="female" itemValue="Female" />
+	</h:selectOneMenu>
+	
+</h:head>
+</html>
